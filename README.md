@@ -1,56 +1,50 @@
-# Welcome to your Expo app 👋
+# Mobile Currency Exchange System (Kantor Walutowy)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A full-stack mobile application for currency exchange, developed as a university final project. The system consists of a React Native (Expo) mobile app, a Node.js/Express Web Service, and a MongoDB database. Exchange rates are fetched directly from the official National Bank of Poland (NBP) API.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Features
 
+### Mobile App (Frontend)
+- **Authentication:** Secure user registration and login.
+- **Virtual Top-up:** Simulated account funding (virtual bank transfer).
+- **Live Exchange Rates:** View current currency rates fetched from NBP API.
+- **Historical Charts:** Interactive line charts showing currency rate trends over the last 30 days (Extra feature).
+- **Currency Exchange:** Buy and sell currencies based on real-time rates.
+- **Wallet & History:** View current wallet balances and detailed transaction history with the exact exchange rate used at the time of transaction.
+- **Modern UI:** Clean, intuitive, and responsive user interface.
+
+### Web Service (Backend)
+- **Business Logic:** All wallet balances and exchange operations are handled exclusively on the server side.
+- **Security:** Passwords are hashed using `bcryptjs`. API endpoints are protected using JSON Web Tokens (JWT).
+- **NBP Integration:** Fetches and caches current and historical exchange rates from the NBP API over HTTPS.
+- **Data Consistency:** Exchange operations are wrapped in MongoDB transactions to ensure atomicity (no data corruption if an error occurs).
+- **Historical Data Integrity:** The exchange rate is permanently stored within the transaction document. Future rate changes do not affect past transactions.
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** React Native, Expo, Expo Router, TypeScript, React Native Chart Kit.
+- **Backend:** Node.js, Express.js, Mongoose, JSON Web Tokens (JWT), Bcrypt.js.
+- **Database:** MongoDB.
+- **External API:** NBP API (Narodowy Bank Polski).
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally.
+
+### Prerequisites
+- Node.js (LTS version recommended)
+- Expo Go app installed on your physical mobile device (Android/iOS) OR an emulator.
+- A MongoDB database (local instance or a free MongoDB Atlas cluster).
+- The mobile device and the computer running the backend must be on the **same Wi-Fi network**.
+
+### 1. Backend Setup (Web Service)
+
+1. Navigate to the backend directory:
    ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+   cd src/backend
