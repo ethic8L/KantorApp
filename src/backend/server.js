@@ -6,7 +6,8 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.use('/api/wallet', require('./routes/wallet'));
+app.use('/api/rates', require('./routes/rates'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api', require('./routes/exchange'));
 

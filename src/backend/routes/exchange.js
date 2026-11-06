@@ -13,6 +13,14 @@ router.post('/exchange', auth, async (req, res) => {
   const session = await mongoose.startSession();
   session.startTransaction();
 
+    // Historia transakcji użytkownika
+    router.get('/transactions', auth, async (req, res) => {
+    const transactions = await Transaction.find({ userId: req.userId })
+        .sort({ createdAt: -1 })
+        .limit(50);
+    res.json({ transactions });
+    });
+
   try {
     const user = await User.findById(req.userId).session(session);
 
