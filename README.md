@@ -48,3 +48,19 @@ Follow these steps to run the project locally.
 1. Navigate to the backend directory:
    ```bash
    cd src/backend
+
+2. Install dependencies:
+   ```bash
+   npm install
+   
+3. Create a .env file in the src/backend directory and add the following variables:
+    ```bash
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_super_secret_random_string
+   PORT=3000
+    
+4. Start the server:
+   ```bash
+   npm run dev
+The server should be running on http://localhost:3000.
+   
