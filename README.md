@@ -62,5 +62,28 @@ Follow these steps to run the project locally.
 4. Start the server:
    ```bash
    npm run dev
-The server should be running on http://localhost:3000.
+The server should be running on http://localhost:3000
+
+### 2.  Frontend Setup (Mobile App)
+
+1. Open a new terminal and navigate back to the root project directory:
+   ```bash
+   cd ../..
+
+2. Install dependencies:
+   ```bash
+   npm install
+   
+3. Create a .env file in the root directory (next to package.json) and add your computer's local IP address:
+    ```bash
+   EXPO_PUBLIC_API_URL=http://YOUR_LOCAL_IP:3000/api
+    
+To find your local IP: Run ipconfig (Windows) or ifconfig | grep inet (Mac/Linux). Replace YOUR_LOCAL_IP with the correct address, e.g., 192.168.1.15 or 172.20.10.2)
+
+4. Start the Expo development server:
+   ```bash
+   npx expo start -c
+
+5. Scan the QR code displayed in the terminal using the Expo Go app on your phone.
+
    
