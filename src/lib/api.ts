@@ -68,3 +68,9 @@ export async function getTransactions(token: string) {
   if (!res.ok) throw new Error((await res.json()).error);
   return res.json() as Promise<{ transactions: any[] }>;
 }
+
+export async function getRateHistory(code: string) {
+  const res = await fetch(`${API_URL}/rates/${code}/history`);
+  if (!res.ok) throw new Error('Błąd pobierania historii kursów');
+  return res.json() as Promise<{ code: string; history: { date: string; rate: number }[] }>;
+}
